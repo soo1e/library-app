@@ -1,6 +1,0 @@
-
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İ–¯îıÿÿÿÿ
-_
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8œŞ´Ü1
-J
-java:S18742"-Remove this use of "query"; it is deprecated.(ñ›²ö8ŸõÁµÜ1

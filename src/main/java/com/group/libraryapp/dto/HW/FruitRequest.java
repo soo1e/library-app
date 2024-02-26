@@ -1,6 +1,7 @@
 package com.group.libraryapp.dto.HW;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class FruitRequest {
     private String name;
@@ -19,9 +20,11 @@ public class FruitRequest {
         return name;
     }
 
-    public LocalDate getWarehousingDate() {
-        return warehousingDate;
+    public String getWarehousingDateAsString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return warehousingDate.format(formatter);
     }
+
 
     public long getPrice() {
         return price;
