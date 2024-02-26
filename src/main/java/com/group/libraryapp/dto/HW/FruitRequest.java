@@ -37,4 +37,8 @@ public class FruitRequest {
     public String getStatus() {
         return status;
     }
+
+    public LocalDate getWarehousingDate() {
+        return warehousingDate;
+    }
 }
