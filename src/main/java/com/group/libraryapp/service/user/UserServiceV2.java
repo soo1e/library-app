@@ -19,15 +19,20 @@ public class UserServiceV2 {
         this.userRepository = userRepository;
     }
 
+    @org.springframework.transaction.annotation.Transactional
     public void saveUser(UserCreateRequest request) {
         userRepository.save(new User(request.getName(), request.getAge()));
+        throw new IllegalArgumentException();
     }
 
+    @org.springframework.transaction.annotation.Transactional
+            (readOnly = true)
     public List<UserResponse> getUsers() {
         List<User> users = userRepository.findAll();
         return users.stream().map(user -> new UserResponse(user.getId(), user.getName(), user.getAge())).collect(Collectors.toList());
     }
 
+    @org.springframework.transaction.annotation.Transactional
     public void updateUser(UserUpdateRequest request) {
         User user = userRepository.findById(request.getId()).orElseThrow(IllegalArgumentException::new);
 
@@ -36,6 +41,7 @@ public class UserServiceV2 {
     }
 
 
+    @org.springframework.transaction.annotation.Transactional
     public void deleteUser(String name) {
         User user = userRepository.findByName(name);
         if (user == null) {
